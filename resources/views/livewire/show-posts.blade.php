@@ -12,9 +12,10 @@
         <!-- This example requires Tailwind CSS v2.0+ -->
         <x-table>
 
-            <div class="px-6 py-4">
+            <div class="px-6 py-4 flex items-center">
                 {{--<input type="text" wire:model="search">--}}
-                <x-jet-input class="w-full" placeholder="Escriba que quiere buscar" type="text" wire:model="search" />
+                <x-jet-input class="flex-1 mr-4" placeholder="Escriba que quiere buscar" type="text" wire:model="search" />
+                @livewire('create-post')
             </div>
 
             @if ($posts->count())
@@ -24,16 +25,16 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Name
+                            class="w-24 cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('id')">
+                            Id
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('title')">
                             Title
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Status
+                            class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('content')">
+                            Content
                         </th>
 
                         <th scope="col" class="relative px-6 py-3">
